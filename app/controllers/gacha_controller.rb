@@ -7,7 +7,7 @@ class GachaController < ApplicationController
     @sum_cal = 0
     items = Item.where("price <= ?", max)
     while (items.any?)
-        @result.push(items.shuffle[0])
+        @result.push(items.sample)
       result_last = @result.last
       max -=  result_last["price"]
       @sum_price += result_last.price
