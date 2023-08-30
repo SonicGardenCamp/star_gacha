@@ -1,0 +1,20 @@
+<div class="background-image-example">
+  <h1>Menus#index</h1>
+  <% @menus.each do |menu| %>
+    <ul style="list-style: none; padding-left: 0;" class="d-flex menu align-items-center justify-content-center">
+        <% menu.items.each do |item| %>
+          <li class="menu-list text-center">
+            <div>
+              <%= item.product_name%>
+            </div>
+            <div>
+              <%= item.price %>円 <%= item.cal %>cal
+            </div>
+          </li>
+        <% end %>
+    </ul>
+  <% end %>
+  <% if @menus.any? %>
+    <%= will_paginate @menus, params: { controller: :menus, action: :index } %>
+  <% end %>
+</div>

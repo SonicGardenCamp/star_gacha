@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ 
+
+:root {
+  /*--main-gutter: 12px;*/
+  /*--main-position: center;*/
+  /*--main-lh: 1.5;*/
+  --main-bg-color: #036635;
+  
+}
 
 /* クラスやIDによって要素を指定し、背景画像を設定 */
 .background-image-example {
@@ -32,3 +41,30 @@
 }
 
 .wf-nicomoji { font-family: "Nico Moji"; }
+
+
+.my-div {
+  width: 600px;   /* タグの幅を調整 */
+    /* タグの高さを調整 */
+ /*background-color: #f0f0f0; /* 背景色を指定（任意） 
+  /* 他のスタイルプロパティも追加できます */
+}
+
+.name-width {
+  width: 100px;
+}
+
+.menu {
+  background-color: var(--main-bg-color);
+  color: white;
+  width: 600px;
+  margin: 4px auto;
+}
+
+.menu-list {
+  margin: 2px 20px;
+}
+
+.all-menu {
+  margin: 0 auto;
+}
