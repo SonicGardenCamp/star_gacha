@@ -14,5 +14,8 @@ class GachaController < ApplicationController
       @sum_cal += result_last.cal
       items = Item.where("price <= ?", max)
     end
+    menu = Menu.new
+    menu.items = @result
+    menu.save
   end
 end
