@@ -32,3 +32,14 @@
 }
 
 .wf-nicomoji { font-family: "Nico Moji"; }
+
+
+.my-div {
+  width: 600px;   /* タグの幅を調整 */
+    /* タグの高さを調整 */ /* 背景色を指定（任意） 
+  /* 他のスタイルプロパティも追加できます */
+}
+
+.name-width {
+  width: 100px;
+}
