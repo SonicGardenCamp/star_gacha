@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'users/edit'
   root 'static_pages#home'
+  post '/', to: 'static_pages#home'
   get 'help', to: 'static_pages#help'
   post 'spin', to: 'gacha#spin'
   get 'spin', to: 'gacha#spin'
