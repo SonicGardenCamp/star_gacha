@@ -13,3 +13,126 @@
  *= require_tree .
  *= require_self
  */
+ 
+
+:root {
+  /*--main-gutter: 12px;*/
+  /*--main-position: center;*/
+  /*--main-lh: 1.5;*/
+  --main-bg-color: #036635;
+  
+}
+
+/* クラスやIDによって要素を指定し、背景画像を設定 */
+.background-image {
+    background-image: url('star.jpg');
+    /* 画像の位置を中央に調整 */
+    background-position: center;
+    /* 背景画像のサイズをカバーするように調整 */
+    background-size: cover;
+    /* 背景画像を繰り返さない */
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.background-white {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px 10px;
+}
+
+.wf-nicomoji { font-family: "Nico Moji"; }
+
+
+.my-div {
+  width: 600px;   /* タグの幅を調整 */
+    /* タグの高さを調整 */
+ /*background-color: #f0f0f0; /* 背景色を指定（任意） 
+  /* 他のスタイルプロパティも追加できます */
+}
+
+.name-width {
+  width: 100px;
+}
+
+.menu {
+  background-color: var(--main-bg-color);
+  color: white;
+  width: 600px;
+  margin: 4px auto;
+}
+
+.menu-list {
+  margin: 2px 20px;
+}
+
+.all-menu {
+  margin: 0 auto;
+}
+
+
+header {
+  height: 64px;
+  /*position: absolute;*/
+  /*z-index: 1;*/
+  width: 100%;
+  background-color: rgba(3, 102, 53, 0.8);
+}
+
+.header-logo {
+  float: left;
+  padding-left: 20px;
+  color: white;
+  font-size: 22px;
+  line-height: 64px;
+}
+
+.header-logo a{
+  color: white;
+  font-size: 22px;
+}
+
+.header-menus {
+  float: right;
+  padding-right: 20px;
+}
+
+.header-menus li {
+  float: left;
+  line-height: 64px;
+  font-size: 13px;
+  color: white;
+  padding-left: 15px;
+}
+
+.header-menus a {
+  float: left;
+  font-size: 13px;
+  color: white;
+}
+
+.header-menus .fa {
+  padding-right: 5px;
+}
+
+.header-menus input[type="submit"] {
+  padding: 0 20px;
+  float: left;
+  line-height: 64px;
+  color: white;
+  margin: 0;
+  font-size: 13px;
+}
+
+
+body {
+   min-height: 100vh;
+}
+
+.home-container {
+  /*margin-top: calc(40% - 100px);*/
+  margin-top: 30%;
+}
+
+.home-center-item {
+  margin: 0 auto;
+}

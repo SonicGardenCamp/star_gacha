@@ -1,2 +1,22 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="w-50 home-center-item">
+    <div class="home-container text-center background-white">
+        <h1 class="display-1 wf-nicomoji">スタバN円ガチャ</h1>
+        <ul style="list-style: none; padding-left: 0;">
+          <% @result.each do |item| %>
+            <li>
+              <div>
+                <%= item.product_name %>
+              </div>
+              <div>
+                <%= item.price %>円 <%= item.cal %>cal
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        <% if @sum_price != 0 %>
+            合計: <%= @sum_price %>円 <%= @sum_cal %>cal
+        <% end %>
+        <%= button_to "1000円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
+        <%= button_to "500円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
+    </div>
+</div>
