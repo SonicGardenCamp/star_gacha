@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/', to: 'static_pages#home'
   get 'help', to: 'static_pages#help'
   get 'menus/index'
-  
+  post "toggle", to: "static_pages#toggle_fav"
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   get "/logout",  to: "sessions#destroy"

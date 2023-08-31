@@ -19,10 +19,16 @@ class StaticPagesController < ApplicationController
       menu.items = @result
       menu.users << current_user
       menu.save
+      @menu_id = menu.id
     end
   end
 
   def help
+  end
+  
+  def toggle_fav
+    @menu = Menu.find(params[:id])
+    @menu.update(fav: !@menu.fav)
   end
   
 end
