@@ -14,9 +14,12 @@ class StaticPagesController < ApplicationController
       @sum_cal += result_last.cal
       items = Item.where("price <= ?", max)
     end
-    menu = Menu.new
-    menu.items = @result
-    menu.save
+    if logged_in?
+      menu = Menu.new
+      menu.items = @result
+      menu.users << current_user
+      menu.save
+    end
   end
 
   def help

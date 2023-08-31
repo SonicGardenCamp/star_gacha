@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_050137) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_021440) do
   create_table "item_menu_relations", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "menu_id", null: false
@@ -44,12 +44,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_050137) do
     t.index ["menu_id"], name: "index_menus_items_on_menu_id"
   end
 
+  create_table "user_menu_relations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "menu_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_user_menu_relations_on_menu_id"
+    t.index ["user_id"], name: "index_user_menu_relations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "menu_ids"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
@@ -57,4 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_050137) do
   add_foreign_key "item_menu_relations", "menus"
   add_foreign_key "menus_items", "items"
   add_foreign_key "menus_items", "menus"
+  add_foreign_key "user_menu_relations", "menus"
+  add_foreign_key "user_menu_relations", "users"
 end
