@@ -14,19 +14,7 @@
 
   <body>
     <div class="background-image">
-      <header>
-        <div class="header-logo">
-          <%= link_to("Home", "/") %>
-        </div>
-        <ul style="list-style: none; padding-left: 0;" class="header-menus">
-          <li>
-            <%= link_to("Sign up", "/users/new") %>
-          </li>
-          <li>
-            <%= link_to("ガチャ履歴", "/menus/index") %>
-          </li>
-        </ul>
-      </header>
+      <%= render 'layouts/header' %>
       <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>

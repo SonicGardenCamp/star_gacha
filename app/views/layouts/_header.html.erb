@@ -1,0 +1,25 @@
+<header>
+        <div class="header-logo">
+          <%= link_to("スタバn円ガチャ", "/") %>
+        </div>
+        <ul style="list-style: none; padding-left: 0;" class="header-menus">
+          <li>
+            <%= link_to("Home", "/") %>
+          </li>
+          <% if logged_in? %>
+            <li>
+              <%= link_to("Log out", "/logout") %>
+            </li>
+            <li>
+              <%= link_to("ガチャ履歴", "/menus/index") %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to("Log in", "/login") %>
+            </li>
+            <li>
+              <%= link_to("Sign up", "/users/new") %>
+            </li>
+          <% end %>
+        </ul>
+  </header>
