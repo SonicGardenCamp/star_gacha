@@ -157,3 +157,20 @@ body {
 .star-y {
   color: yellow;
 }
+
+
+
+
+.pagination {
+    margin: 20px auto 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .page-link {
+  background-color: rgba(3, 100, 2, 0.8);
+  border-width: 2px;
+  color: black;
+  font-weight: bold;
+}

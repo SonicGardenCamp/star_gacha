@@ -29,6 +29,6 @@
     </ul>
   <% end %>
   <% if @menus.any? %>
-    <%= will_paginate @menus, params: { controller: :menus, action: :index } %>
+    <%= will_paginate @menus, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, params: { controller: :menus, action: :index }, class: "pagination" %>
   <% end %>
 </div>

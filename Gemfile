@@ -7,6 +7,10 @@ gem "bcrypt"
 
 gem "will_paginate"
 
+gem "bootstrap-will_paginate"
+
+gem 'will_paginate-bootstrap4'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 
