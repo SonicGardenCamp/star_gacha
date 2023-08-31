@@ -136,3 +136,17 @@ body {
 .home-center-item {
   margin: 0 auto;
 }
+
+.menu-board {
+  background-color: rgba(3, 100, 2, 0.8);
+}
+
+
+.fav-button {
+  background-color: rgba(0,0,0, 0);
+  border: none;
+}
+
+.star-y {
+  color: yellow;
+}

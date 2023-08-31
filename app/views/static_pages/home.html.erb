@@ -1,21 +1,47 @@
 <div class="w-50 home-center-item">
     <div class="home-container text-center background-white">
         <h1 class="display-1 wf-nicomoji">スタバN円ガチャ</h1>
-        <ul style="list-style: none; padding-left: 0;">
-          <% @result.each do |item| %>
-            <li>
-              <div>
-                <%= item.product_name %>
-              </div>
-              <div>
-                <%= item.price %>円 <%= item.cal %>cal
-              </div>
-            </li>
-          <% end %>
-        </ul>
-        <% if @sum_price != 0 %>
-            合計: <%= @sum_price %>円 <%= @sum_cal %>cal
-        <% end %>
+        <div class="menu-board w-75 d-flex">
+            <div>
+              
+              <% if logged_in? %>
+                <%= button_to "お気に入り", toggle_path, class: "btn btn-success mt-3 w-75", params: { id: @menu_id } %>
+                <%#= link_to "いいね！", toggle_path, method: :post do %>
+                <!--  <i class="fa-solid fa-star" aria-hidden="true"></i>-->
+                <%# end %>
+                <% if logged_in? %>
+                  <% if fav?(@menu_id) %>
+                    <%= button_to toggle_path, class: "fav-button", params: { id: @menu_id } do %>
+                      <i class="fa-solid fa-star star-y" aria-hidden="true"></i>
+                    <% end %>
+                  <% else %>
+                    <%= button_to toggle_path, class: "fav-button", params: { id: @menu_id } do %>
+                      <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              
+              
+            </div>
+            <div>
+              <ul style="list-style: none; padding-left: 0;">
+                <% @result.each do |item| %>
+                  <li>
+                    <div>
+                      <%= item.product_name %>
+                    </div>
+                    <div>
+                      <%= item.price %>円 <%= item.cal %>cal
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+              <% if @sum_price != 0 %>
+                  合計: <%= @sum_price %>円 <%= @sum_cal %>cal
+              <% end %>
+            </div>
+        </div>
         <%= button_to "1000円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
         <%= button_to "500円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
     </div>

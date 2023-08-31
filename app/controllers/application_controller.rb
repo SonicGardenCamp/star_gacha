@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include MenusHelper
 end
-class ApplicationController < ActionController::Base
-end
+

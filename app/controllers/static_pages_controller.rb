@@ -25,10 +25,12 @@ class StaticPagesController < ApplicationController
 
   def help
   end
-  
   def toggle_fav
-    @menu = Menu.find(params[:id])
-    @menu.update(fav: !@menu.fav)
+    menu = Menu.find(params[:id])
+    menu.update(fav: !menu.fav)
+    @result = menu.items
+    @menu_id = menu.id
+    render "static_pages/home"
   end
   
 end
