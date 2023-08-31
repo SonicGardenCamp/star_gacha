@@ -1,28 +1,35 @@
 class StaticPagesController < ApplicationController
   def home
     max = params[:max].to_i
-    result_last = []
-    @result = []
-    @sum_price = 0
-    @sum_cal = 0
-    items = Item.where("price <= ?", max)
-    while (items.any?)
-        @result.push(items.sample)
-      result_last = @result.last
-      max -=  result_last["price"]
-      @sum_price += result_last.price
-      @sum_cal += result_last.cal
-      items = Item.where("price <= ?", max)
+    @menu = Menu.new
+    valid_items = Item.where("price <= ?", max)
+    while (valid_items.any?)
+      item = valid_items.sample
+        @menu.items.push(item)
+      max -=  item.price
+      @menu.price += item.price
+      @menu.cal += item.cal
+      valid_items = Item.where("price <= ?", max)
     end
     if logged_in?
-      menu = Menu.new
-      menu.items = @result
-      menu.users << current_user
-      menu.save
+      @menu.users << current_user
+      @menu.save
     end
+  end
+
+  def toggle_fav
+    @menu = Menu.find_by(id: params[:id])
+    @menu.update(fav: !@menu.fav)
+    render "static_pages/home"
+  end
+  
+  def toggle_fav_record
+    @menu = Menu.find_by(id: params[:id])
+    @menu.update(fav: !@menu.fav)
+    @menus = current_user.menus.paginate(page: params[:page], per_page: 10)
+    render "menus/index"
   end
 
   def help
   end
-  
 end

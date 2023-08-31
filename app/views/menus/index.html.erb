@@ -1,7 +1,20 @@
 <div class="background-image-example">
-  <h1>Menus#index</h1>
+  <h1>ガチャ履歴</h1>
   <% @menus.each do |menu| %>
+  
     <ul style="list-style: none; padding-left: 0;" class="d-flex menu align-items-center justify-content-center">
+      <!--<div>-->
+        <% if fav?(menu.id) %>
+                        <%= button_to toggle_record_path, method: :post, class: "fav-button fav-position", params: { id: menu.id } do %>
+                          <i class="fa-solid fa-star star-y" aria-hidden="true"></i>
+                        <% end %>
+                      <% else %>
+                        <%= button_to toggle_record_path, method: :post, class: "fav-button fav-position", params: { id: menu.id } do %>
+                          <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <% end %>
+                      <% end %>
+      <!--</div>-->
+      <!--<div>-->
         <% menu.items.each do |item| %>
           <li class="menu-list text-center">
             <div>
@@ -12,9 +25,10 @@
             </div>
           </li>
         <% end %>
+      <!--</div>-->
     </ul>
   <% end %>
   <% if @menus.any? %>
-    <%= will_paginate @menus, params: { controller: :menus, action: :index } %>
+    <%= will_paginate @menus, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, params: { controller: :menus, action: :index }, class: "pagination" %>
   <% end %>
 </div>

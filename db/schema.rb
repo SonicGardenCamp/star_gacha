@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_041812) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
   create_table "item_menu_relations", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "menu_id", null: false
@@ -33,7 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_041812) do
   create_table "menus", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "fav"
+    t.boolean "fav", default: false
+    t.integer "price", default: 0
+    t.integer "cal", default: 0
   end
 
   create_table "menus_items", force: :cascade do |t|
