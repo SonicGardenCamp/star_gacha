@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'help', to: 'static_pages#help'
   get 'menus/index'
   post "toggle", to: "static_pages#toggle_fav"
+  post "toggle_record", to: "static_pages#toggle_fav_record"
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   get "/logout",  to: "sessions#destroy"
