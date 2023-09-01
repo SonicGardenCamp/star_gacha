@@ -169,8 +169,32 @@ body {
 }
 
 .pagination .page-link {
-  background-color: rgba(3, 100, 2, 0.8);
+  background-color: rgba(3, 102, 53, 0.8);
   border-width: 2px;
   color: black;
   font-weight: bold;
+}
+
+.button-on {
+  background-color: rgba(4, 130, 65, 1);
+  color: black;
+}
+
+.button-off {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: gray;
+}
+
+.button-right {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.button-left {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.toggle-button {
+  /*margin-left: 500px;*/
+  margin-top: 100px;
+  margin-bottom: 20px;
 }
