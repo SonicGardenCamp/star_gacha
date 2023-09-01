@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem "bcrypt"
 
+gem "bootstrap_form"
+
 gem "will_paginate"
 
 gem "bootstrap-will_paginate"

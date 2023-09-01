@@ -146,6 +146,8 @@ body {
 
 .menu-board {
   background-color: rgba(3, 100, 2, 0.8);
+  position: relative;
+  
 }
 
 
@@ -197,4 +199,14 @@ body {
   /*margin-left: 500px;*/
   margin-top: 100px;
   margin-bottom: 20px;
+}
+
+.mt-auto {
+  margin-top: 20px;
+}
+
+.home-star {
+  position: absolute;
+  left: 35px;
+  top: calc(50% - 13px);
 }

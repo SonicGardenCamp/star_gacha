@@ -74,6 +74,9 @@ GEM
       msgpack (~> 1.2)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bootstrap_form (5.2.3)
+      actionpack (>= 6.0)
+      activemodel (>= 6.0)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -228,6 +231,7 @@ DEPENDENCIES
   bcrypt
   bootsnap
   bootstrap-will_paginate
+  bootstrap_form
   capybara
   debug
   dockerfile-rails (>= 1.5)
