@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post 'menus/index'
   post "menus/favs", to: "menus#favs"
   get "menus/favs", to: "menus#favs"
-  post "toggle", to: "static_pages#toggle_fav"
-  post "toggle_record", to: "static_pages#toggle_fav_record"
+  post "toggle", to: "menus#toggle_fav"
+  post "spin_gacha", to: "menus#spin_gacha"
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"
   get "/logout",  to: "sessions#destroy"
