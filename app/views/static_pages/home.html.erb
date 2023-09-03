@@ -37,7 +37,7 @@
               </div>
             <% end %>
         </div>
-        <%= button_to "1000円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
-        <%= button_to "500円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
+        <%= button_to "1000円", root_path, method: :get, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
+        <%= button_to "500円", root_path, method: :get, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
     </div>
 </div>
