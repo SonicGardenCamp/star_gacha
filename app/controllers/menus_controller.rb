@@ -9,7 +9,7 @@ class MenusController < ApplicationController
     end
   end
   
-  def favs
+  def fav_menus
     @menus = nil
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)

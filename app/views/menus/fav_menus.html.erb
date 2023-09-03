@@ -33,6 +33,6 @@
     </ul>
   <% end %>
   <% if @menus.any? %>
-    <%= will_paginate @menus, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, params: { controller: :menus, action: :favs}, class: "pagination" %>
+    <%= will_paginate @menus, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, params: { controller: :menus, action: :fav_menus}, class: "pagination" %>
   <% end %>
 </div>
