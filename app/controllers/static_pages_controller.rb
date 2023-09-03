@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
     @menu = Menu.find_by(id: params[:id])
     @menu.update(fav: !@menu.fav)
     @menus = current_user.menus.paginate(page: params[:page], per_page: 10)
-    render "menus/index"
+    redirect_to request.referer
   end
 
   def help
