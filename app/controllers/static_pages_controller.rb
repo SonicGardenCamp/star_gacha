@@ -6,9 +6,4 @@ class StaticPagesController < ApplicationController
       @menu = Menu.new
     end
   end
-
-  def help
-  end
-  
-  
 end
