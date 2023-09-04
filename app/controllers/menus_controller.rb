@@ -26,6 +26,7 @@ class MenusController < ApplicationController
   def spin_gacha
     @menu = spin(params[:max].to_i, params[:menu_type])
     if logged_in?
+      current_user.menus.find_by(fav: false)&.destroy if current_user.menus.count >= 50
       @menu.users << current_user
     end
     @menu.save
