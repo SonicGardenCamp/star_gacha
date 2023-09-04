@@ -38,6 +38,7 @@
             <% end %>
         </div>
         <%= button_to "1000円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
-        <%= button_to "500円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
+        <%= button_to "1000円 food", "/spin_gacha_drink_food", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
+        <%= button_to "700円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "700", drink: "drink" } %>
     </div>
 </div>
