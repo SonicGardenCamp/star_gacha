@@ -38,15 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
     t.integer "cal", default: 0
   end
 
-  create_table "menus_items", force: :cascade do |t|
-    t.integer "menu_id", null: false
-    t.integer "item_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_menus_items_on_item_id"
-    t.index ["menu_id"], name: "index_menus_items_on_menu_id"
-  end
-
   create_table "user_menu_relations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "menu_id", null: false
@@ -68,8 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
 
   add_foreign_key "item_menu_relations", "items"
   add_foreign_key "item_menu_relations", "menus"
-  add_foreign_key "menus_items", "items"
-  add_foreign_key "menus_items", "menus"
   add_foreign_key "user_menu_relations", "menus"
   add_foreign_key "user_menu_relations", "users"
 end
