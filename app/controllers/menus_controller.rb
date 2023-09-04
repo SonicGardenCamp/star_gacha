@@ -24,16 +24,11 @@ class MenusController < ApplicationController
   end
   
   def spin_gacha
-    @menu = spin(params[:max].to_i, params[:drink])
-    if logged_in?
-      @menu.users << current_user
+    if params[:drink] == "food_and_drink"
+      @menu = spin_drink_food(params[:max].to_i)
+    else
+      @menu = spin(params[:max].to_i, params[:drink])
     end
-    @menu.save
-    redirect_to controller: 'static_pages', action: 'home', id: @menu.id
-  end
-  
-  def spin_gacha_drink_food
-    @menu = spin_drink_food(params[:max].to_i)
     if logged_in?
       @menu.users << current_user
     end
@@ -58,17 +53,13 @@ class MenusController < ApplicationController
     # 一つ目はドリンク２つ目以降はフードのメニューを作る
     def spin_drink_food(max)
       menu = Menu.new
-      if item = random_item(max, "drink")
+      food_or_drink = "drink"
+      while item = random_item(max, food_or_drink)
         menu.items.push(item)
         max -=  item.price
         menu.price += item.price
         menu.cal += item.cal
-      end
-      while item = random_item(max, "food")
-        menu.items.push(item)
-        max -=  item.price
-        menu.price += item.price
-        menu.cal += item.cal
+        food_or_drink = "food"
       end
       return menu
     end

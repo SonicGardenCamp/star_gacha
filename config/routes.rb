@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get   "sessions/new"
   get   "menus/index"
   post  "spin_gacha", to: "menus#spin_gacha"
-  post  "spin_gacha_drink_food", to: "menus#spin_gacha_drink_food"
   post  "toggle",     to: "menus#toggle_fav"
   get   "menus/favs", to: "menus#fav_menus"
   get   "/login",     to: "sessions#new"
