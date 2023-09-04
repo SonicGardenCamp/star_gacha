@@ -5,20 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Item.create!( product_name: "コーヒー フラペチーノ short",
-              price: 475,
-              cal: 170,
-              food_or_drink: "drink")
-              
-Item.create!( product_name: "コールドブリュー コーヒー short",
-              price: 400,
-              cal: 9,
-              food_or_drink: "drink")
-              
-Item.create!( product_name: "スターバックス ラテ short",
-              price: 449,
-              cal: 148,
-              food_or_drink: "drink")
 
 require 'csv'
 
@@ -27,12 +13,12 @@ csv_path = 'db/menu_prices.csv'
 
 # CSVファイルの各行を読み込んでデータベースに登録する
 CSV.foreach(csv_path, headers: false) do |row|
-  product_name, price = row[0], row[1].to_i
+  product_name, cal, price = row[0], row[1].to_i, row[2].to_i
 
   Item.create!(
     product_name: product_name,
     price: price,
-    cal: 0,
+    cal: cal,
     food_or_drink: "drink"
   )
 end

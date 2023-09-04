@@ -57,8 +57,15 @@
 .menu {
   background-color: var(--main-bg-color);
   color: white;
-  width: 600px;
+  width: 650px;
   margin: 4px auto;
+  position: relative;
+}
+
+.fav-position {
+  position: absolute;
+  left: 13px;
+  top: 13px;
 }
 
 .menu-list {
@@ -135,4 +142,71 @@ body {
 
 .home-center-item {
   margin: 0 auto;
+}
+
+.menu-board {
+  background-color: rgba(3, 100, 2, 0.8);
+  position: relative;
+  
+}
+
+
+.fav-button {
+  background-color: rgba(0,0,0, 0);
+  border: none;
+}
+
+.star-y {
+  color: yellow;
+}
+
+
+
+
+.pagination {
+    margin: 20px auto 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .page-link {
+  background-color: rgba(3, 102, 53, 0.8);
+  border-width: 2px;
+  color: black;
+  font-weight: bold;
+}
+
+.button-on {
+  background-color: rgba(4, 130, 65, 1);
+  color: black;
+}
+
+.button-off {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: gray;
+}
+
+.button-right {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.button-left {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.toggle-button {
+  /*margin-left: 500px;*/
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.mt-auto {
+  margin-top: 20px;
+}
+
+.home-star {
+  position: absolute;
+  left: 35px;
+  top: calc(50% - 13px);
 }

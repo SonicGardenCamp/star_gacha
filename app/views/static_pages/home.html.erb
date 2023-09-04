@@ -1,22 +1,43 @@
 <div class="w-50 home-center-item">
     <div class="home-container text-center background-white">
         <h1 class="display-1 wf-nicomoji">スタバN円ガチャ</h1>
-        <ul style="list-style: none; padding-left: 0;">
-          <% @result.each do |item| %>
-            <li>
-              <div>
-                <%= item.product_name %>
+        <div class="menu-board mx-auto w-75 d-flex justify-content-center">
+            <% if @menu.price != 0 %>
+              <div class="home-star">
+                
+      
+                  <% if logged_in? %>
+                    <% if fav?(@menu.id) %>
+                      <%= button_to toggle_path, method: :post, class: "fav-button", params: { id: @menu.id } do %>
+                        <i class="fa-solid fa-star star-y" aria-hidden="true"></i>
+                      <% end %>
+                    <% else %>
+                      <%= button_to toggle_path, method: :post, class: "fav-button", params: { id: @menu.id } do %>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                
+                
               </div>
               <div>
-                <%= item.price %>円 <%= item.cal %>cal
+                <ul style="list-style: none; padding-left: 0;">
+                  <% @menu.items.each do |item| %>
+                    <li>
+                      <div>
+                        <%= item.product_name %>
+                      </div>
+                      <div>
+                        <%= item.price %>円 <%= item.cal %>cal
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+                    合計: <%= @menu.price %>円 <%= @menu.cal %>cal
               </div>
-            </li>
-          <% end %>
-        </ul>
-        <% if @sum_price != 0 %>
-            合計: <%= @sum_price %>円 <%= @sum_cal %>cal
-        <% end %>
-        <%= button_to "1000円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
-        <%= button_to "500円", root_path, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
+            <% end %>
+        </div>
+        <%= button_to "1000円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000" } %>
+        <%= button_to "500円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "500" } %>
     </div>
 </div>
