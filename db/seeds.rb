@@ -22,3 +22,16 @@ CSV.foreach(csv_path, headers: false) do |row|
     food_or_drink: "drink"
   )
 end
+
+csv_path = 'db/menu_food.csv'
+
+CSV.foreach(csv_path, headers: false) do |row|
+  product_name, cal, price = row[0], row[1].to_i, row[2].to_i
+
+  Item.create!(
+    product_name: product_name,
+    price: price,
+    cal: cal,
+    food_or_drink: "food"
+  )
+end
