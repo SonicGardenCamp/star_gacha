@@ -13,12 +13,12 @@ csv_path = 'db/menu_prices.csv'
 
 # CSVファイルの各行を読み込んでデータベースに登録する
 CSV.foreach(csv_path, headers: false) do |row|
-  product_name, price = row[0], row[1].to_i
+  product_name, cal, price = row[0], row[1].to_i, row[2].to_i
 
   Item.create!(
     product_name: product_name,
     price: price,
-    cal: 0,
+    cal: cal,
     food_or_drink: "drink"
   )
 end
