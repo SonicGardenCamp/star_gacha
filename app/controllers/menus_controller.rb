@@ -24,11 +24,7 @@ class MenusController < ApplicationController
   end
   
   def spin_gacha
-    if params[:drink] == "food_and_drink"
-      @menu = spin_drink_food(params[:max].to_i)
-    else
-      @menu = spin(params[:max].to_i, params[:drink])
-    end
+    @menu = spin(params[:max].to_i, params[:menu_type])
     if logged_in?
       @menu.users << current_user
     end
@@ -38,39 +34,23 @@ class MenusController < ApplicationController
 
   private
 
-# drinkは"drink" or nil
-    def spin(max, drink)
+    def spin(max, menu_type)
       menu = Menu.new
-      while item = random_item(max, drink)
+      menu_type_array = menu_type.split
+      drink_or_food = menu_type_array.first
+      while item = random_item(max, drink_or_food)
         menu.items.push(item)
         max -=  item.price
         menu.price += item.price
         menu.cal += item.cal
-      end
-      return menu
-    end
-    
-    # 一つ目はドリンク２つ目以降はフードのメニューを作る
-    def spin_drink_food(max)
-      menu = Menu.new
-      food_or_drink = "drink"
-      while item = random_item(max, food_or_drink)
-        menu.items.push(item)
-        max -=  item.price
-        menu.price += item.price
-        menu.cal += item.cal
-        food_or_drink = "food"
+        drink_or_food = menu_type_array.last
       end
       return menu
     end
     
     # フードかドリンクか指定してランダムにitemを一つ取得する
-    def random_item(max, food_or_drink)
-      if food_or_drink
-        valid_items = Item.where("price <= ? AND food_or_drink = ?", max, food_or_drink)
-      else
-        valid_items = Item.where("price <= ?", max)
-      end
+    def random_item(max, drink_or_food)
+      valid_items = Item.where("price <= ? AND food_or_drink = ?", max, drink_or_food)
       return valid_items.any? ? valid_items.sample : nil
     end
     
