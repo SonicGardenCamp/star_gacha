@@ -137,7 +137,8 @@ body {
 
 .home-container {
   /*margin-top: calc(40% - 100px);*/
-  margin-top: 30%;
+  /*margin-top: %;*/
+  padding: 8vh 0;
 }
 
 .home-center-item {
