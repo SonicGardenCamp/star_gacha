@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root  "home#top"
+  root  "menus#menu"
   get   "sessions/new"
   get   "menus/index"
-  get '/top', to: "home#top"
+  get '/menu', to: "menus#menu"
   post  "spin_gacha", to: "menus#spin_gacha"
   post  "toggle",     to: "menus#toggle_fav"
   get   "menus/favs", to: "menus#fav_menus"
