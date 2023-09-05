@@ -91,6 +91,24 @@ header {
   color: white;
 }
 
+@media screen and (max-width: 480px){
+  
+  .header-logo a{
+    font-size: 18px;
+  }
+  
+  .header-menus {
+    padiing-right: 10px;
+  }
+  
+  .header-menus li {
+    padding-left: 8px;
+  }
+  .header-menus a {
+    font-size: 8px;
+  }
+}
+
 .header-menus .fa {
   padding-right: 5px;
 }
@@ -237,6 +255,9 @@ header {
 }
 
 @media screen and (max-width: 480px){
+  .menu-container-title{
+    font-size: 36px;
+  }
   .menu-board {
     padding-bottom: 20px;
   }
