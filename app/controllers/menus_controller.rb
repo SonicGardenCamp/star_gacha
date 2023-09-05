@@ -5,7 +5,7 @@ class MenusController < ApplicationController
   def index
     @menus = nil
     if logged_in?
-      @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
     end
   end
   
@@ -13,7 +13,7 @@ class MenusController < ApplicationController
     @menus = nil
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)
-      @menus =fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      @menus =fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
     end
   end
   

@@ -1,43 +1,33 @@
-<div class="w-50 home-center-item">
+<div class="w-75 home-center-item">
     <div class="home-container mt-5 text-center background-white">
         <h1 class="display-1 wf-nicomoji">スタバN円ガチャ</h1>
-        <div class="menu-board mx-auto w-75 d-flex justify-content-center">
-            <% if @menu.price != 0 %>
-              <div class="home-star">
-                
-      
-                  <% if logged_in? %>
-                    <% if fav?(@menu.id) %>
-                      <%= button_to toggle_path, method: :post, class: "fav-button", params: { id: @menu.id } do %>
-                        <i class="fa-solid fa-star star-y" aria-hidden="true"></i>
-                      <% end %>
-                    <% else %>
-                      <%= button_to toggle_path, method: :post, class: "fav-button", params: { id: @menu.id } do %>
-                        <i class="fa-solid fa-star" aria-hidden="true"></i>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                
-                
-              </div>
-              <div>
-                <ul style="list-style: none; padding-left: 0;">
-                  <% @menu.items.each do |item| %>
-                    <li>
-                      <div>
-                        <%= item.product_name %>
-                      </div>
-                      <div>
-                        <%= item.price %>円 <%= item.cal %>kcal
-                      </div>
-                    </li>
-                  <% end %>
-                </ul>
-                    合計: <%= @menu.price %>円 <%= @menu.cal %>kcal
-              </div>
+        <% if @menu.price != 0 %>
+          <div class="menu-board mx-auto w-75 d-flex justify-content-center">
+            <% if logged_in? %>
+              <% if fav?(@menu.id) %>
+                <%= button_to toggle_path, method: :post, class: "fav-button fav-position", params: { id: @menu.id } do %>
+                  <i class="fa-solid fa-star star-y" aria-hidden="true"></i>
+                <% end %>
+              <% else %>
+                <%= button_to toggle_path, method: :post, class: "fav-button fav-position", params: { id: @menu.id } do %>
+                  <i class="fa-solid fa-star star-w" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
             <% end %>
-        </div>
-        <%= button_to "1000円 drink + food", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000", menu_type: "drink food" } %>
+            <div>
+              <ul style="list-style: none; padding-left: 0;" class="home-menu-lists">
+                <% @menu.items.each do |item| %>
+                  <li class="home-menu-list">
+                    <div class="home-menu-name menu-font"><%= item.product_name %></div>
+                    <div class="home-menu-sub menu-font"><%= item.price %>円 <%= item.cal %>kcal</div>
+                  </li>
+                <% end %>
+              </ul>
+                合計: <%= @menu.price %>円 <%= @menu.cal %>kcal
+            </div>
+          </div>
+        <% end %>
+        <%= button_to "1000円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000", menu_type: "drink food" } %>
         <%= button_to "700円", "/spin_gacha", method: :post, class: "btn btn-success mt-3 w-75", params: { max: "700", menu_type: "drink" } %>
     </div>
 </div>
