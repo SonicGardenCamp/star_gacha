@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root  "menus#show"
   
-  post  "spin_gacha", to: "menus#spin_gacha"
-  post  "toggle",     to: "menus#toggle_fav"
-  get   "menus/favs", to: "menus#fav_menus"
+  post  "menus/spin-gacha",       to: "menus#spin_gacha", as: "spin_gacha"
+  post  "menus/toggle-favorite",  to: "menus#toggle_fav", as: "toggle_fav"
+  get   "menus/favorite-menus",   to: "menus#fav_menus",  as: "fav_menus"
   resources :menus, only: [:index, :show]
 
   get   "/signup",    to: "users#new"

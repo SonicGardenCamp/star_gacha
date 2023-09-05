@@ -4,7 +4,7 @@
     <%= button_to menus_path, method: :get, class: "button-off button-left" do %>
       <i class="fas fa-history"></i>  ガチャ履歴
     <% end %>
-    <%= button_to "/menus/favs", method: :get, class: "button-on button-right" do %>
+    <%= button_to fav_menus_path, method: :get, class: "button-on button-right" do %>
       <i class="fa-solid fa-star star-y" aria-hidden="true"></i>  お気に入り
     <% end %>
   </div>
