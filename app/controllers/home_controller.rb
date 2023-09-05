@@ -1,5 +1,5 @@
-class StaticPagesController < ApplicationController
-  def home
+class HomeController < ApplicationController
+  def top
     if params[:id]
       @menu = Menu.find(params[:id])
     else

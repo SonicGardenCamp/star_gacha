@@ -30,7 +30,7 @@ class MenusController < ApplicationController
       @menu.users << current_user
     end
     @menu.save
-    redirect_to controller: 'static_pages', action: 'home', id: @menu.id
+    redirect_to top_path id: @menu.id
   end
 
   private
