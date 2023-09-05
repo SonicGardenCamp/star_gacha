@@ -236,6 +236,12 @@ header {
   color: white;
 }
 
+@media screen and (max-width: 480px){
+  .menu-board {
+    padding-bottom: 20px;
+  }
+}
+
 .star-w{
   color: rgb(150, 150, 150);
 }
@@ -268,8 +274,4 @@ header {
   .home-menu-sub{
     font-size: 8px;
   }
-}
-
-.mt-auto {
-  margin-top: 20px;
 }
