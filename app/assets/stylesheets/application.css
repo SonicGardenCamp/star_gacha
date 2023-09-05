@@ -77,6 +77,12 @@ background-attachment: fixed;
 }
 }
 
+@media screen and (max-width: 480px){
+  .min-480{
+    display:none;
+  }
+}
+
 .menu {
   background-color: var(--main-bg-color);
   color: white;
@@ -88,8 +94,21 @@ background-attachment: fixed;
 
 .fav-position {
   position: absolute;
+  transform: translate(0%, -50%);
   left: 13px;
-  top: calc(50% - 13px);
+  top: 50%;
+}
+
+@media screen and (max-width: 480px){
+.fav-position{
+  transform: translate(-50%, -100%);
+  left: 50%;
+  top: 100%;
+}
+
+.menu{
+  padding-bottom: 20px;
+}
 }
 
 .menu-list {
@@ -204,7 +223,6 @@ body {
 
 @media screen and (max-width: 480px) {
 .home-menu-list{
-  
 }
 
 .home-menu-name{
