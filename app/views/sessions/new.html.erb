@@ -5,12 +5,12 @@
     
      <%= form_with(url: login_path, scope: :session) do |f| %>
       <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
-        <%= f.label "メールアドレス", class: "name-width" %>
+        <%= f.label :email, "メールアドレス", class: "name-width" %>
         <%= f.email_field :email, class: "form-width" %>
       </div>
 
       <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
-        <%= f.label "パスワード", class: "name-width" %>
+        <%= f.label :password, "パスワード", class: "name-width" %>
         <%= f.password_field :password, class: "form-width" %>
       </div>
       <div class="my-div mt-3 ">
