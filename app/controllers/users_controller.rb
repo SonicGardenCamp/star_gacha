@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    flash[:success] = "Welcome to the StarGacha!"
     redirect_to root_path
    
   end

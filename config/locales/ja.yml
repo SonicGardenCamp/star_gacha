@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        password_confirmation: もう一度パスワードを入力してください
+        email: メールアドレス
+      tweet:
+        text: テキスト
+        image: 画像
+      
