@@ -23,16 +23,25 @@
   
 }
 
+
 /* クラスやIDによって要素を指定し、背景画像を設定 */
-.background-image {
-    background-image: url('star.jpg');
+/*.background-image {*/
+/*    background-image: url('star.jpg');*/
     /* 画像の位置を中央に調整 */
-    background-position: center;
+/*    background-position: center;*/
     /* 背景画像のサイズをカバーするように調整 */
-    background-size: cover;
+/*    background-size: cover;*/
     /* 背景画像を繰り返さない */
+/*    background-repeat: no-repeat;*/
+/*    height: 100vh;*/
+/*}*/
+body {
+background-image: url('star.jpg');
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+background-attachment: fixed;
 }
 
 .background-white {
@@ -58,7 +67,7 @@
   width: 40%;
 }
 
-@media screen and (min-width: 481px)　{
+@media screen and (min-width: 481px) {
 .max-480 {
   display: none;
 }
@@ -71,15 +80,16 @@
 .menu {
   background-color: var(--main-bg-color);
   color: white;
-  width: 650px;
+  width: 75%;
   margin: 4px auto;
   position: relative;
+  padding-left: 0;
 }
 
 .fav-position {
   position: absolute;
   left: 13px;
-  top: 13px;
+  top: calc(50% - 13px);
 }
 
 .menu-list {
@@ -160,9 +170,51 @@ body {
 }
 
 .menu-board {
-  background-color: rgba(3, 100, 2, 0.8);
+  background-color: rgba(30, 57, 50, 1);
+  padding: 5% 0;
   position: relative;
+  color: white;
+}
+
+.star-w{
+  color: rgb(150, 150, 150);
+}
+
+.home-menu-lists li:not(:nth-child(1))
+{
+  margin-top: 1vh;
+}
+
+.home-menu-list{
   
+}
+
+.menu-font{
+  font-family: 'Noto Sans JP',sans-serif;
+}
+
+.home-menu-name{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.home-menu-sub{
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 480px) {
+.home-menu-list{
+  
+}
+
+.home-menu-name{
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.home-menu-sub{
+  font-size: 8px;
+}
 }
 
 
