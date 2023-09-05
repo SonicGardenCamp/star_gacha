@@ -2,6 +2,15 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 class MenusController < ApplicationController
+  
+  def menu
+    if params[:id]
+      @menu = Menu.find(params[:id])
+    else
+      @menu = Menu.new
+    end
+  end
+
   def index
     @menus = nil
     if logged_in?
@@ -30,7 +39,7 @@ class MenusController < ApplicationController
       @menu.users << current_user
     end
     @menu.save
-    redirect_to controller: 'static_pages', action: 'home', id: @menu.id
+    redirect_to menu_path id: @menu.id
   end
 
   private

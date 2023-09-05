@@ -11,14 +11,14 @@
               <%= link_to("Log out", "/logout") %>
             </li>
             <li>
-              <%= link_to("ガチャ履歴", "/menus/index") %>
+              <%= link_to("ガチャ履歴", menus_path) %>
             </li>
           <% else %>
             <li>
-              <%= link_to("Log in", "/login") %>
+              <%= link_to("Log in", login_path) %>
             </li>
             <li>
-              <%= link_to("Sign up", "/users/new") %>
+              <%= link_to("Sign up", signup_path) %>
             </li>
           <% end %>
         </ul>
