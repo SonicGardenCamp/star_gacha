@@ -2,22 +2,12 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 class MenusController < ApplicationController
-  
-
-
   def index
-    @menus = nil
-    if logged_in?
-      @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
-    end
+    @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8) if logged_in?
   end
   
   def show
-    if params[:id]
-      @menu = Menu.find(params[:id])
-    else
-      @menu = Menu.new
-    end
+    @menu = Menu.find(params[:id]) if params[:id]
   end
   
   def fav_menus

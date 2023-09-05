@@ -4,7 +4,7 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
         <h1 class="display-1 wf-nicomoji menu-container-title">スタバN円ガチャ</h1>
-        <% if @menu.price != 0 %>
+        <% if @menu %>
           <div class="menu-board mx-auto w-75 d-flex justify-content-center">
             <% if logged_in? %>
               <% if fav?(@menu.id) %>
