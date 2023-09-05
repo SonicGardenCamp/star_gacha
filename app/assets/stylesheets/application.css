@@ -44,14 +44,28 @@
 
 
 .my-div {
-  width: 600px;   /* タグの幅を調整 */
+  width:100%;   /* タグの幅を調整 */
     /* タグの高さを調整 */
  /*background-color: #f0f0f0; /* 背景色を指定（任意） 
   /* 他のスタイルプロパティも追加できます */
 }
 
 .name-width {
-  width: 100px;
+  width: 50%;
+}
+
+.form-width{
+  width: 40%;
+}
+
+@media screen and (min-width: 481px)　{
+.max-480 {
+  display: none;
+}
+
+.my-div{
+  flex-flow: column;
+}
 }
 
 .menu {
