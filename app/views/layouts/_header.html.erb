@@ -3,22 +3,22 @@
           <%= link_to("スタバn円ガチャ", "/") %>
         </div>
         <ul style="list-style: none; padding-left: 0;" class="header-menus">
-          <li>
-            <%= link_to("Home", "/") %>
-          </li>
           <% if logged_in? %>
-            <li>
-              <%= link_to("Log out", logout_path) %>
-            </li>
             <li>
               <%= link_to("ガチャ履歴", menus_path) %>
             </li>
+            <li>
+              <%= link_to("ログアウト", logout_path) %>
+            </li>
           <% else %>
             <li>
-              <%= link_to("Log in", login_path) %>
+              <%= link_to("ガチャ履歴", login_path) %>
             </li>
             <li>
-              <%= link_to("Sign up", signup_path) %>
+              <%= link_to("ログイン", login_path) %>
+            </li>
+            <li>
+              <%= link_to("新規登録", signup_path) %>
             </li>
           <% end %>
         </ul>
