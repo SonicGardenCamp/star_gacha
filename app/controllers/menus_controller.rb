@@ -11,7 +11,6 @@ class MenusController < ApplicationController
   end
   
   def fav_menus
-    @menus = nil
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)
       @menus =fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
