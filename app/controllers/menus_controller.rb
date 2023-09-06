@@ -3,7 +3,9 @@ require 'will_paginate/active_record'
 
 class MenusController < ApplicationController
   def index
-    @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8) if logged_in?
+    if logged_in?
+      @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
+    end
   end
   
   def show
@@ -14,7 +16,7 @@ class MenusController < ApplicationController
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)
       @menus = fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
-    enqd
+    end
   end
   
   def toggle_fav

@@ -9,5 +9,4 @@ class Menu < ApplicationRecord
   has_many :users, through: :user_menu_relations, validate: false
 
   validates :items, presence: true
-  validates :toppings, presence: true
 end
