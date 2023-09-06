@@ -3,7 +3,7 @@
     <div class="alert alert-danger">
       フォームには <%= pluralize(@user.errors.count,"つのエラーがあります") %>
     </div>
-    <ul>
+    <ul style="list-style: none;">
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
