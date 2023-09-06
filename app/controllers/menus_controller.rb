@@ -13,8 +13,8 @@ class MenusController < ApplicationController
   def fav_menus
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)
-      @menus =fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
-    end
+      @menus = fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
+    enqd
   end
   
   def toggle_fav
@@ -26,7 +26,7 @@ class MenusController < ApplicationController
   def spin_gacha
     @menu = spin(params[:max].to_i, params[:menu_type])
     if logged_in?
-      current_user.menus.find_by(fav: false)&.destroy if current_user.menus.count >= 50
+      current_user.menus.find_by(fav: false)&.destroy if current_user.menus.count >= 100
       @menu.users << current_user
     end
     @menu.save
