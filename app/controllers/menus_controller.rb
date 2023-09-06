@@ -48,12 +48,24 @@ class MenusController < ApplicationController
         menu.cal += item.cal
         drink_or_food = menu_type_array.last
       end
-      # topping = Topping.find_by(name: menu.items[0].topping1&.split.sample)
-      # if topping && max > topping.price
-      #   menu.toppings.push(topping)
-      #   max -= topping.price
-      #   menu.price += topping.price
-      # end
+      topping = Topping.find_by(product_name: menu.items[0].topping1&.split&.sample)
+      if topping && max > topping.price
+        menu.toppings.push(topping)
+        max -= topping.price
+        menu.price += topping.price
+      end
+      topping = Topping.find_by(product_name: menu.items[0].topping2&.split&.sample)
+      if topping && max > topping.price
+        menu.toppings.push(topping)
+        max -= topping.price
+        menu.price += topping.price
+      end
+      topping = Topping.find_by(product_name: menu.items[0].topping3&.split&.sample)
+      if topping && max > topping.price
+        menu.toppings.push(topping)
+        max -= topping.price
+        menu.price += topping.price
+      end
       return menu
     end
     
