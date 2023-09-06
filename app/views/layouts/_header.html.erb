@@ -12,7 +12,7 @@
             </li>
           <% else %>
             <li>
-              <%= link_to("ガチャ履歴", login_path) %>
+              <%= link_to("ガチャ履歴", login_path(from_gacha: true)) %>
             </li>
             <li>
               <%= link_to("ログイン", login_path) %>

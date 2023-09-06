@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @from_gacha = params[:from_gacha]
   end
   
   def create
@@ -7,7 +8,12 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       reset_session      # ログインの直前に必ずこれを書くこと
       log_in user
-      redirect_to user
+      if params[:session][:from_gacha] == "true"
+        params[:session][:from_gacha] == "false"
+        redirect_to menus_path
+      else
+        redirect_to user
+      end
     else
       # エラーメッセージを作成する
       flash.now[:danger] = 'ログインに失敗しました。入力情報を確認して再度ログインしてください'
