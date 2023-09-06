@@ -50,6 +50,7 @@ class MenusController < ApplicationController
       # if topping && max > topping.price
       #   menu.toppings.push(topping)
       #   max -= topping.price
+      #   menu.price += topping.price
       # end
       return menu
     end
