@@ -15,6 +15,8 @@
         <%= f.label :password, "パスワード", class: "name-width" %>
         <%= f.password_field :password, class: "form-width" %>
       </div>
+      
+       <%= f.hidden_field :from_gacha, value: @from_gacha %>
       <div class="my-div mt-3 ">
       <%= f.submit "ログイン", class: "btn btn-primary" %>
       </div>
