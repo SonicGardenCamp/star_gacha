@@ -38,3 +38,14 @@ CSV.foreach(csv_path, headers: false) do |row|
     food_or_drink: "food"
   )
 end
+
+csv_path = 'db/topping_food.csv'
+
+CSV.foreach(csv_path, headers: false) do |row|
+  product_name, price = row[0], row[1].to_i
+
+  Topping.create!(
+    product_name: product_name,
+    price: price,
+  )
+end
