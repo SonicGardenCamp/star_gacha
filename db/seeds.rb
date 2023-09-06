@@ -39,7 +39,7 @@ CSV.foreach(csv_path, headers: false) do |row|
   )
 end
 
-csv_path = 'db/topping_food.csv'
+csv_path = 'db/topping.csv'
 
 CSV.foreach(csv_path, headers: false) do |row|
   product_name, price = row[0], row[1].to_i
