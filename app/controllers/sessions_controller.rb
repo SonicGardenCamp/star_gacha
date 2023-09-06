@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
     @from_gacha = params[:from_gacha]
+    if params[:from_gacha] == "true"
+      flash.now[:danger] = "履歴を確認するには，ログインしてください"
+    end
   end
   
   def create
@@ -9,7 +12,7 @@ class SessionsController < ApplicationController
       reset_session      # ログインの直前に必ずこれを書くこと
       log_in user
       if params[:session][:from_gacha] == "true"
-        params[:session][:from_gacha] == "false"
+        params[:session][:from_gacha] = "false"
         redirect_to menus_path
       else
         redirect_to user
