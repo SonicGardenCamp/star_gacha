@@ -27,6 +27,11 @@
                 <% end %>
               </ul>
               <!--ここに@menu.toppings.eachのコード-->
+              <% @menu.toppings.each do |topping| %>
+                <li class="home-menu-list">
+                  <%= "#{topping.product_name }" %>
+                </li>
+              <% end %>
                 合計: <%= @menu.price %>円 <%= @menu.cal %>kcal
             </div>
           </div>
