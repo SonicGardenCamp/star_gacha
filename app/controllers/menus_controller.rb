@@ -2,29 +2,20 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 class MenusController < ApplicationController
-  
-
-
   def index
-    @menus = nil
     if logged_in?
       @menus = current_user.menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
     end
   end
   
   def show
-    if params[:id]
-      @menu = Menu.find(params[:id])
-    else
-      @menu = Menu.new
-    end
+    @menu = Menu.find(params[:id]) if params[:id]
   end
   
   def fav_menus
-    @menus = nil
     if logged_in?
       fav_menus = current_user.menus.where(fav: true)
-      @menus =fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
+      @menus = fav_menus.order(created_at: :desc).paginate(page: params[:page], per_page: 8)
     end
   end
   
@@ -37,7 +28,7 @@ class MenusController < ApplicationController
   def spin_gacha
     @menu = spin(params[:max].to_i, params[:menu_type])
     if logged_in?
-      current_user.menus.find_by(fav: false)&.destroy if current_user.menus.count >= 50
+      current_user.menus.find_by(fav: false)&.destroy if current_user.menus.count >= 100
       @menu.users << current_user
     end
     @menu.save
@@ -57,6 +48,12 @@ class MenusController < ApplicationController
         menu.cal += item.cal
         drink_or_food = menu_type_array.last
       end
+      # topping = Topping.find_by(name: menu.items[0].topping1&.split.sample)
+      # if topping && max > topping.price
+      #   menu.toppings.push(topping)
+      #   max -= topping.price
+      #   menu.price += topping.price
+      # end
       return menu
     end
     
