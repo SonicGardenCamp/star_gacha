@@ -26,9 +26,9 @@
                   </li>
                 <% end %>
               </ul>
-              <ul style="list-style: none;">
+              <ul style="list-style: none; padding-left: 0;">
                 <% @menu.toppings.each do |topping| %>
-                  <li class="home-menu-list">
+                  <li class="home-menu-list topping">
                     <%= "#{topping.product_name }" %>
                   </li>
                 <% end %>
@@ -39,5 +39,9 @@
         <% end %>
         <%= button_to "1000円", spin_gacha_path, method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000", menu_type: "drink food" } %>
         <%= button_to "700円", spin_gacha_path, method: :post, class: "btn btn-success mt-3 w-75", params: { max: "700", menu_type: "drink" } %>
+        <div class="attention-container">
+        <p class="attention">※メニューのカロリーやトッピングの組み合わせは，ドリンクがホットである場合に基づいています</p>
+        <p class="attention">※トッピングのカロリーは含まれていません</p>
+        </div>
     </div>
 </div>

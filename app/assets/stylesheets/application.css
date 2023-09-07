@@ -140,6 +140,12 @@ header {
 }
 }
 
+@media screen and (max-width: 1024px){
+  .form-width{
+  width: 200px;
+  }
+}
+
 @media screen and (max-width: 480px){
   .min-480{
     display:none;
@@ -240,7 +246,7 @@ header {
 
 /*home*/
 .home-container {
-  padding: 8vh 0;
+  padding: 8vh 0 4vh 0;
 }
 
 .home-center-item {
@@ -285,6 +291,15 @@ header {
   font-size: 0.8em;
 }
 
+.attention-container{
+  margin-top: 5vh;
+}
+
+.attention{
+  font-size: 12px;
+  height: 16px;
+}
+
 @media screen and (max-width: 480px) {
 
   .home-menu-name{
@@ -294,5 +309,13 @@ header {
   
   .home-menu-sub{
     font-size: 8px;
+  }
+  
+  .attention{
+    font-size: 8px;
+  }
+  
+  .topping{
+    font-size:8px;
   }
 }
