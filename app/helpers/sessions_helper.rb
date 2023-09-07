@@ -19,6 +19,6 @@ module SessionsHelper
   # 現在のユーザーをログアウトする
   def log_out
     reset_session
-    @current_user = nil   # 安全のため
+    @current_user = nil
   end
 end
