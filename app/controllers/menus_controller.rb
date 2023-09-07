@@ -48,23 +48,9 @@ class MenusController < ApplicationController
         menu.cal += item.cal
         drink_or_food = menu_type_array.last
       end
-      topping = Topping.find_by(product_name: menu.items[0].topping1&.split&.sample)
-      if topping && max > topping.price
-        menu.toppings.push(topping)
-        max -= topping.price
-        menu.price += topping.price
-      end
-      topping = Topping.find_by(product_name: menu.items[0].topping2&.split&.sample)
-      if topping && max > topping.price
-        menu.toppings.push(topping)
-        max -= topping.price
-        menu.price += topping.price
-      end
-      topping = Topping.find_by(product_name: menu.items[0].topping3&.split&.sample)
-      if topping && max > topping.price
-        menu.toppings.push(topping)
-        max -= topping.price
-        menu.price += topping.price
+
+      (1..3).each do |topping_number|
+        add_random_topping(menu, max, topping_number)
       end
       return menu
     end
@@ -75,4 +61,15 @@ class MenusController < ApplicationController
       return valid_items.any? ? valid_items.sample : nil
     end
     
+    # トッピングをランダムに選び、条件を満たす限り追加する関数
+    def add_random_topping(menu, max, topping_number)
+      topping_name = menu.items[0].send("topping#{topping_number}")&.split&.sample
+      topping = Topping.find_by(product_name: topping_name)
+    
+      if topping && max > topping.price
+        menu.toppings.push(topping)
+        max -= topping.price
+        menu.price += topping.price
+      end
+    end
 end
