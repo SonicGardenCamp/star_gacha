@@ -206,6 +206,11 @@ header {
   margin: 0 auto;
 }
 
+.detail {
+  margin-right: 5px;
+  color: rgb(150, 150, 255);
+}
+
 .pagination {
     margin: 20px auto 0;
     width: 50%;

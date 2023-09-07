@@ -15,5 +15,6 @@
             <div class="min-480"><%= item.price %>円 <%= item.cal %>kcal</div>
           </li>
         <% end %>
+        <%= link_to "詳細", menu_path(menu.id), class: "detail" %>
     </ul>
   <% end %>
