@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-    user = User.find(params[:id])
     flash[:success] = 'ようこそ、スタバn円ガチャへ！'
     redirect_to root_path
   end

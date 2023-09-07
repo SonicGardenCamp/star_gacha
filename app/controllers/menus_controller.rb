@@ -41,16 +41,15 @@ class MenusController < ApplicationController
     menu = Menu.new
     menu_type_array = menu_type.split
     drink_or_food = menu_type_array.shift
-    while item = random_item(max, drink_or_food)
+    while (item = random_item(max - menu.price, drink_or_food))
       menu.items.push(item)
-      max -= item.price
       menu.price += item.price
       menu.cal += item.cal
       drink_or_food = menu_type_array.shift if menu_type_array.any?
     end
 
     (1..3).each do |topping_number|
-      add_random_topping(menu, max, topping_number)
+      add_random_topping(menu, max - menu.price, topping_number)
     end
     menu
   end
@@ -69,7 +68,7 @@ class MenusController < ApplicationController
     return unless topping && max > topping.price
 
     menu.toppings.push(topping)
-    max -= topping.price
+    topping.price
     menu.price += topping.price
   end
 end
