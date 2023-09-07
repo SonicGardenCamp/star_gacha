@@ -16,25 +16,10 @@
  
 
 :root {
-  /*--main-gutter: 12px;*/
-  /*--main-position: center;*/
-  /*--main-lh: 1.5;*/
   --main-bg-color: #036635;
-  
 }
 
 
-/* クラスやIDによって要素を指定し、背景画像を設定 */
-/*.background-image {*/
-/*    background-image: url('star.jpg');*/
-    /* 画像の位置を中央に調整 */
-/*    background-position: center;*/
-    /* 背景画像のサイズをカバーするように調整 */
-/*    background-size: cover;*/
-    /* 背景画像を繰り返さない */
-/*    background-repeat: no-repeat;*/
-/*    height: 100vh;*/
-/*}*/
 body {
 background-image: url('star.jpg');
   background-position: center;
