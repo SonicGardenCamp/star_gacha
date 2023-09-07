@@ -21,7 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
+  # <<: *default
   adapter: postgresql
   encoding: unicode
+  database: star-gacha-db
+  username: postgres
+  password: mvNEgZLgV1MJKRd
+  # host: star-gacha-db.internal
+  port: 5432
   url: <%= ENV['DATABASE_URL'] %>

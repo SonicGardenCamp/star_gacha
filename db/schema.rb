@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_052343) do
   create_table "item_menu_relations", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "menu_id", null: false
@@ -28,6 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "menu_ids"
+    t.string "topping1"
+    t.string "topping2"
+    t.string "topping3"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -38,13 +41,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
     t.integer "cal", default: 0
   end
 
-  create_table "menus_items", force: :cascade do |t|
+  create_table "topping_menu_relations", force: :cascade do |t|
+    t.integer "topping_id", null: false
     t.integer "menu_id", null: false
-    t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_menus_items_on_item_id"
-    t.index ["menu_id"], name: "index_menus_items_on_menu_id"
+    t.index ["menu_id"], name: "index_topping_menu_relations_on_menu_id"
+    t.index ["topping_id"], name: "index_topping_menu_relations_on_topping_id"
+  end
+
+  create_table "toppings", force: :cascade do |t|
+    t.string "product_name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_menu_relations", force: :cascade do |t|
@@ -68,8 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_071201) do
 
   add_foreign_key "item_menu_relations", "items"
   add_foreign_key "item_menu_relations", "menus"
-  add_foreign_key "menus_items", "items"
-  add_foreign_key "menus_items", "menus"
+  add_foreign_key "topping_menu_relations", "menus"
+  add_foreign_key "topping_menu_relations", "toppings"
   add_foreign_key "user_menu_relations", "menus"
   add_foreign_key "user_menu_relations", "users"
 end

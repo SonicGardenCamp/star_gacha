@@ -1,29 +1,29 @@
 <div class="background-image-example">
-  <h1 class="text-center">Sign up</h1>
-  <div class="d-flex flex-column align-items-center justify-content-center">
-    <div class="text-center background-white">
+  <div class="w-50 home-center-item">
+  <div class="home-container mt-5 text-center background-white">
+      <h1 class="text-center">新規登録</h1>
       <%= form_with(model: @user) do |f| %>
         <%= render 'shared/error_messages' %>
         <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
         <%= f.label :name, class: "name-width" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-width"%>
         </div>
         <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
         <%= f.label :email, class: "name-width" %>
-        <%= f.email_field :email %>
+        <%= f.email_field :email, class: "form-width" %>
         </div>
         <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
         <%= f.label :password, class: "name-width" %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, class: "form-width" %>
         </div>
         <div class="my-div d-flex align-items-center justify-content-center mt-3 ">
-        <%= f.label :password_confirmation, "Confirmation", class: "name-width" %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation, class: "name-width" %>
+        <%= f.password_field :password_confirmation, class: "form-width" %>
         </div>
         <div class="my-div mt-3 ">
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <%= f.submit "登録", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
-  </div>
+  </div> 
 </div>

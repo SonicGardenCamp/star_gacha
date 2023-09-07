@@ -3,7 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem 'rails-i18n'
+
 gem "bcrypt"
+
+gem 'whenever', require: false
 
 gem "bootstrap_form"
 

@@ -16,23 +16,17 @@
  
 
 :root {
-  /*--main-gutter: 12px;*/
-  /*--main-position: center;*/
-  /*--main-lh: 1.5;*/
   --main-bg-color: #036635;
-  
 }
 
-/* クラスやIDによって要素を指定し、背景画像を設定 */
-.background-image {
-    background-image: url('star.jpg');
-    /* 画像の位置を中央に調整 */
-    background-position: center;
-    /* 背景画像のサイズをカバーするように調整 */
-    background-size: cover;
-    /* 背景画像を繰り返さない */
-    background-repeat: no-repeat;
-    height: 100vh;
+
+body {
+background-image: url('star.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-attachment: fixed;
 }
 
 .background-white {
@@ -43,44 +37,9 @@
 .wf-nicomoji { font-family: "Nico Moji"; }
 
 
-.my-div {
-  width: 600px;   /* タグの幅を調整 */
-    /* タグの高さを調整 */
- /*background-color: #f0f0f0; /* 背景色を指定（任意） 
-  /* 他のスタイルプロパティも追加できます */
-}
-
-.name-width {
-  width: 100px;
-}
-
-.menu {
-  background-color: var(--main-bg-color);
-  color: white;
-  width: 650px;
-  margin: 4px auto;
-  position: relative;
-}
-
-.fav-position {
-  position: absolute;
-  left: 13px;
-  top: 13px;
-}
-
-.menu-list {
-  margin: 2px 20px;
-}
-
-.all-menu {
-  margin: 0 auto;
-}
-
-
+/*ヘッダー*/
 header {
   height: 64px;
-  /*position: absolute;*/
-  /*z-index: 1;*/
   width: 100%;
   background-color: rgba(3, 102, 53, 0.8);
 }
@@ -117,6 +76,24 @@ header {
   color: white;
 }
 
+@media screen and (max-width: 480px){
+  
+  .header-logo a{
+    font-size: 18px;
+  }
+  
+  .header-menus {
+    padiing-right: 10px;
+  }
+  
+  .header-menus li {
+    padding-left: 8px;
+  }
+  .header-menus a {
+    font-size: 8px;
+  }
+}
+
 .header-menus .fa {
   padding-right: 5px;
 }
@@ -131,37 +108,93 @@ header {
 }
 
 
-body {
-   min-height: 100vh;
+
+/* login sign_up*/
+.my-div {
+  width:100%;
+  flex-flow: column;
 }
 
-.home-container {
-  /*margin-top: calc(40% - 100px);*/
-  margin-top: 30%;
+.form-width{
+  width: 500px;
 }
 
-.home-center-item {
-  margin: 0 auto;
+@media screen and (min-width: 481px) {
+.max-480 {
+  display: none;
+}
 }
 
-.menu-board {
-  background-color: rgba(3, 100, 2, 0.8);
-  position: relative;
+@media screen and (max-width: 1024px){
+  .form-width{
+  width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .min-480{
+    display:none;
+  }
   
+  .form-width{
+  width: 100px;
+  }
 }
 
+/*お気に入りボタン*/
 
 .fav-button {
   background-color: rgba(0,0,0, 0);
   border: none;
 }
 
+.fav-position {
+  position: absolute;
+  transform: translate(0%, -50%);
+  left: 13px;
+  top: 50%;
+}
+
+@media screen and (max-width: 480px){
+  .fav-position{
+    transform: translate(-50%, -100%);
+    left: 50%;
+    top: 100%;
+  }
+}
+
 .star-y {
   color: yellow;
 }
 
+/*menus/index*/
+.menu {
+  background-color: var(--main-bg-color);
+  color: white;
+  width: 75%;
+  margin: 4px auto;
+  position: relative;
+  padding-left: 0;
+}
 
+@media screen and (max-width: 480px){
+  .menu{
+    padding-bottom: 20px;
+  }
+}
 
+.menu-list {
+  margin: 2px 20px;
+}
+
+.all-menu {
+  margin: 0 auto;
+}
+
+.detail {
+  margin-right: 5px;
+  color: rgb(150, 150, 255);
+}
 
 .pagination {
     margin: 20px auto 0;
@@ -196,17 +229,83 @@ body {
 }
 
 .toggle-button {
-  /*margin-left: 500px;*/
   margin-top: 100px;
   margin-bottom: 20px;
 }
 
-.mt-auto {
-  margin-top: 20px;
+
+/*home*/
+.home-container {
+  padding: 8vh 0 4vh 0;
 }
 
-.home-star {
-  position: absolute;
-  left: 35px;
-  top: calc(50% - 13px);
+.home-center-item {
+  margin: 0 auto;
+}
+
+.menu-board {
+  background-color: rgba(30, 57, 50, 1);
+  padding: 5% 0;
+  position: relative;
+  color: white;
+}
+
+@media screen and (max-width: 480px){
+  .menu-container-title{
+    font-size: 36px;
+  }
+  .menu-board {
+    padding-bottom: 20px;
+  }
+}
+
+.star-w{
+  color: rgb(150, 150, 150);
+}
+
+.home-menu-lists li:not(:nth-child(1))
+{
+  margin-top: 1vh;
+}
+
+.menu-font{
+  font-family: 'Noto Sans JP',sans-serif;
+}
+
+.home-menu-name{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.home-menu-sub{
+  font-size: 0.8em;
+}
+
+.attention-container{
+  margin-top: 5vh;
+}
+
+.attention{
+  font-size: 12px;
+  height: 16px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .home-menu-name{
+    font-weight: normal;
+    font-size: 12px;
+  }
+  
+  .home-menu-sub{
+    font-size: 8px;
+  }
+  
+  .attention{
+    font-size: 8px;
+  }
+  
+  .topping{
+    font-size:8px;
+  }
 }
