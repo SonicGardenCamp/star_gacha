@@ -243,11 +243,38 @@ header {
   margin: 0 auto;
 }
 
+.btn-container {
+  height: 100px;
+}
+
+.gacha-btn {
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+  border-radius: 50px;
+  margin:0px 5px;
+}
+
+@media screen and (max-width: 480px){
+  .btn-container {
+    height: 66px;
+  }
+
+  .gacha-btn {
+    width: 66px;
+    height: 66px;
+    font-size: 10px;
+    border-radius: 33xpx;
+    margin:0px 5px;
+  }
+}
+
 .menu-board {
   background-color: rgba(30, 57, 50, 1);
   padding: 5% 0;
   position: relative;
   color: white;
+  margin-top: 3vh;
 }
 
 @media screen and (max-width: 480px){
