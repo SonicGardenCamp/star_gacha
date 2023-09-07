@@ -4,7 +4,7 @@ class Menu < ApplicationRecord
 
   has_many :topping_menu_relations, dependent: :delete_all
   has_many :toppings, through: :topping_menu_relations
-  
+
   has_many :user_menu_relations, dependent: :delete_all
   has_many :users, through: :user_menu_relations, validate: false
 

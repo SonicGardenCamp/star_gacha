@@ -1,18 +1,18 @@
 class SessionsController < ApplicationController
   def new
     @from_gacha = params[:from_gacha]
-    if params[:from_gacha] == "true"
-      flash.now[:danger] = "履歴を確認するには，ログインしてください"
-    end
+    return unless params[:from_gacha] == 'true'
+
+    flash.now[:danger] = '履歴を確認するには，ログインしてください'
   end
-  
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       reset_session      # ログインの直前に必ずこれを書くこと
       log_in user
-      if params[:session][:from_gacha] == "true"
-        params[:session][:from_gacha] = "false"
+      if params[:session][:from_gacha] == 'true'
+        params[:session][:from_gacha] = 'false'
         redirect_to menus_path
       else
         redirect_to user
