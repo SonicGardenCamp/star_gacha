@@ -1,4 +1,4 @@
 class ItemMenuRelation < ApplicationRecord
-  belongs_to :item
-  belongs_to :menu
+  belongs_to :item, dependent: :delete
+  belongs_to :menu, dependent: :delete
 end

@@ -34,6 +34,13 @@ class MenusController < ApplicationController
     @menu.save
     redirect_to menu_path(@menu.id)
   end
+  
+  def reset
+    Item.destroy_all
+    Menu.destroy_all
+    User.destroy_all
+    redirect_to menus_path
+  end
 
   private
 
