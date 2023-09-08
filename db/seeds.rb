@@ -16,12 +16,11 @@ User.create!(
   admin: true)
 
 # CSVファイルのパスを指定して読み込む
-csv_path = 'db/menu_prices.csv'
+csv_path = 'db/drinks.csv'
 
 # CSVファイルの各行を読み込んでデータベースに登録する
 CSV.foreach(csv_path, headers: false) do |row|
-  product_name, cal, price, topping1, topping2, topping3 = row[0], row[1].to_i, row[2].to_i, row[3], row[4], row[5]
-
+  product_name, cal, price, topping1, topping2, topping3, csv_id, exist = row[0], row[1].to_i, row[2].to_i, row[3], row[4], row[5], row[6].to_i, row[7]
   Item.create!(
     product_name: product_name,
     cal: cal,
@@ -30,6 +29,8 @@ CSV.foreach(csv_path, headers: false) do |row|
     topping1: topping1,  
     topping2: topping2,  
     topping3: topping3,  
+    csv_id: csv_id,
+    exist: exist == "1" ? true : false
   )
 end
 
