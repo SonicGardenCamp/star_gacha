@@ -175,11 +175,13 @@ header {
   margin: 4px auto;
   position: relative;
   padding-left: 0;
+  padding-right: 15px;
 }
 
 @media screen and (max-width: 480px){
   .menu{
     padding-bottom: 20px;
+    font-size: 12px;
   }
 }
 
