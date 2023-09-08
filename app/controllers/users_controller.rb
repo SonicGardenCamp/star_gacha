@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
+  def show
+    flash[:success] = 'ようこそ、スタバn円ガチャへ！'
+    redirect_to root_path
+  end
 
   def new
     @user = User.new
-  end
-
-  def show
-    user = User.find(params[:id])
-    flash[:success] = "ようこそ、スタバn円ガチャへ！"
-    redirect_to root_path
-   
   end
 
   def create
@@ -24,8 +21,8 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation)
+  end
 end

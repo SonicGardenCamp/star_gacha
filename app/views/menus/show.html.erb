@@ -4,6 +4,11 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
         <h1 class="display-1 wf-nicomoji menu-container-title">スタバN円ガチャ</h1>
+        <div class="d-flex mt-3 justify-content-center btn-container">
+        <%= button_to "1000円", spin_gacha_path, method: :post, class: "btn btn-success gacha-btn", params: { max: "1000", menu_type: "drink food" } %>
+        <%= button_to "700円", spin_gacha_path, method: :post, class: "btn btn-success gacha-btn", params: { max: "700", menu_type: "drink" } %>
+        <%= button_to "500円", spin_gacha_path, method: :post, class: "btn btn-success gacha-btn", params: { max: "500", menu_type: "drink" } %>
+        </div>
         <% if @menu %>
           <div class="menu-board mx-auto w-75 d-flex justify-content-center">
             <% if logged_in? %>
@@ -37,8 +42,6 @@
             </div>
           </div>
         <% end %>
-        <%= button_to "1000円", spin_gacha_path, method: :post, class: "btn btn-success mt-3 w-75", params: { max: "1000", menu_type: "drink food" } %>
-        <%= button_to "700円", spin_gacha_path, method: :post, class: "btn btn-success mt-3 w-75", params: { max: "700", menu_type: "drink" } %>
         <div class="attention-container">
         <p class="attention">※メニューのカロリーやトッピングの組み合わせは，ドリンクがホットである場合に基づいています</p>
         <p class="attention">※トッピングのカロリーは含まれていません</p>
