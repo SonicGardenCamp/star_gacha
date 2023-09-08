@@ -1,0 +1,11 @@
+<h1>Admin#new</h1>
+<p>Find me in app/views/admin/new.html.erb</p>
+
+<%= form_with(url: root_path, method: :post) do |form| %>
+  <div data-controller="file-drop"
+      data-action="dragover->file-drop#dragover dragleave->file-drop#dragleave drop->file-drop#drop">
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image, data: { 'file-drop-target': 'fileUpload' } %>
+  </div>
+  <%= form.submit "アップロードする" %>
+<% end %>

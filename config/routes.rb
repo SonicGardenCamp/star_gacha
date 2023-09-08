@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/new'
   root  "menus#show"
   
   post  "menus/spin-gacha",       to: "menus#spin_gacha", as: "spin_gacha"
