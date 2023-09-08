@@ -1,6 +1,8 @@
 require "csv"
 
 class DocumentsController < ApplicationController
+  before_action :perform_checks
+  
   def new
   end
 
@@ -24,4 +26,15 @@ class DocumentsController < ApplicationController
       end
     end
   end
+    
+  private
+    def perform_checks
+      if !logged_in?
+        redirect_to login_path
+        return
+      end
+      if !current_user.admin?
+        redirect_to menus_path
+      end
+    end
 end

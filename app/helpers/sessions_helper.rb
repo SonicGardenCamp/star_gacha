@@ -16,6 +16,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def admin?
+    return current_user.admin if logged_in?
+    return false
+  end
+
   # 現在のユーザーをログアウトする
   def log_out
     reset_session
