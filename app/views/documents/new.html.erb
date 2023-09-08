@@ -1,0 +1,8 @@
+<%= form_with(url: admin_path, method: :post) do |form| %>
+  <div data-controller="file-drop"
+      data-action="dragover->file-drop#dragover dragleave->file-drop#dragleave drop->file-drop#drop">
+      <%= form.label :upload_file, style: "display: block" %>
+      <%= form.file_field :upload_file, data: { 'file-drop-target': 'fileUpload' } %>
+  </div>
+  <%= form.submit "アップロードする" %>
+<% end %>
