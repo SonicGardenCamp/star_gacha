@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get   "/logout",    to: "sessions#destroy"
   get   "reset", to: "menus#reset"
   
+  get   "document", to: "documents#new"
+  
   resources :documents, only: [:new, :create]
 end

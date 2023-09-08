@@ -8,6 +8,13 @@
 
 require 'csv'
 
+User.create!(
+  name: "yanagi",
+  email: "yanagi@gmail.com",
+  password: "foobar",
+  password_confirmation: "foobar",
+  admin: true)
+
 # CSVファイルのパスを指定して読み込む
 csv_path = 'db/menu_prices.csv'
 

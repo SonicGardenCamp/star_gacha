@@ -1,6 +1,8 @@
 require "csv"
 
 class DocumentsController < ApplicationController
+  before_action :perform_checks
+  
   def new
   end
 
@@ -36,5 +38,15 @@ class DocumentsController < ApplicationController
     def destroy_items(category)
       Item.where("food_or_drink == ?", category).destroy_all
       Topping.destroy_all if category == "topping"
+    end
+    
+    def perform_checks
+      if !logged_in?
+        redirect_to login_path
+        return
+      end
+      if !current_user.admin?
+        redirect_to menus_path
+      end
     end
 end

@@ -45,7 +45,10 @@
         <div class="attention-container">
         <p class="attention">※メニューのカロリーやトッピングの組み合わせは，ドリンクがホットである場合に基づいています</p>
         <p class="attention">※トッピングのカロリーは含まれていません</p>
+        <% if admin? %>
         <%= link_to "reset", reset_path, method: :get %>
+        <%= link_to "document", document_path, method: :get %>
+        <% end %>
         </div>
     </div>
 </div>
