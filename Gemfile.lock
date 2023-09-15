@@ -280,7 +280,7 @@ DEPENDENCIES
   jbuilder
   pg (= 1.3.5)
   puma (~> 5.0)
-  rails (~> 7.0.7, >= 7.0.7.2)
+  rails
   rails-i18n
   rubocop
   rubocop-rails
@@ -299,7 +299,7 @@ DEPENDENCIES
   will_paginate-bootstrap4
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.14
